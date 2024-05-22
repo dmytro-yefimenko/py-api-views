@@ -1,5 +1,4 @@
 from django.db import models
-from rest_framework.fields import IntegerField
 
 
 class Movie(models.Model):
@@ -30,12 +29,12 @@ class Genre(models.Model):
 
 class CinemaHall(models.Model):
     name = models.CharField(max_length=255)
-    rows = models.IntegerField()
-    seats_in_row = models.IntegerField()
+    rows = models.IntegerField(default=0)
+    seats_in_row = models.IntegerField(default=0)
 
     def __str__(self):
         return (
-            f"{self.name}"
-            f"Rows: {self.rows}"
+            f"{self.name} "
+            f"Rows: {self.rows} "
             f"Seat in row: {self.seats_in_row}"
         )
